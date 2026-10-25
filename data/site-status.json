@@ -1,0 +1,32 @@
+{
+  "honobono-timecard": {
+    "status": 200,
+    "hash": "51e335e230fa2888",
+    "contentLength": 4875,
+    "checkedAt": "2026-10-25T08:09:20.245Z"
+  },
+  "tabenomi": {
+    "status": 200,
+    "hash": "9d1a62568f63007e",
+    "contentLength": 1746,
+    "checkedAt": "2026-10-25T08:09:21.566Z"
+  },
+  "hojonavi": {
+    "status": 200,
+    "hash": "63a0a6c8e9497ccd",
+    "contentLength": 5609,
+    "checkedAt": "2026-10-25T08:09:22.775Z"
+  },
+  "mc-blueprint": {
+    "status": 200,
+    "hash": "401b42e464856da8",
+    "contentLength": 6205,
+    "checkedAt": "2026-10-25T08:09:23.868Z"
+  },
+  "poseup": {
+    "status": 200,
+    "hash": "d28a5fb56a0e2528",
+    "contentLength": 226786,
+    "checkedAt": "2026-10-25T08:09:29.023Z"
+  }
+}
