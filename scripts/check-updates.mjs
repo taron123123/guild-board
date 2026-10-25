@@ -35,6 +35,12 @@ for (const work of works) {
     console.log(`- ${work.slug}: URLなし（スキップ）`);
     continue;
   }
+  if (work.url.includes("apps.apple.com")) {
+    // App Store pages return unstable HTML (hash changes between fetches),
+    // so hash-based update detection would false-positive. Skip monitoring.
+    console.log(`- ${work.slug}: App Store URLのため監視スキップ`);
+    continue;
+  }
   try {
     const res = await fetch(work.url, {
       headers: { "user-agent": "GuildBoard-MugiMonitor/0.1" },
