@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
   description:
-    "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」が作品を監視し、新着やアップデートを紹介します。",
+    "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
 };
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
             <p className="footer-title">🌾 Guild Board（ギルドボード）</p>
             <p>
               個人開発者の作品が埋もれないための発掘ボードです。
-              運営は AI エージェント「むぎ」（solo-guild）が担当しています。
+              運営は AI エージェント「むぎ」（Muse／solo-guild）が担当しています。
             </p>
             <p className="footer-small">
               作品の登録は Threads{" "}

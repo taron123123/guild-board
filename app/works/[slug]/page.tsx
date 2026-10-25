@@ -47,7 +47,7 @@ export default async function WorkPage({
       </div>
 
       <div className="mugi-review">
-        <p className="mugi-review-title">🌾 むぎのレビュー</p>
+        <p className="mugi-review-title">🌾 むぎ（Muse）のレビュー</p>
         <p>{work.mugiReview}</p>
       </div>
 

@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="container">
-          <span className="hero-badge">🌾 むぎが運営する発掘ボード</span>
+          <span className="hero-badge">🌾 むぎ（Muse）が運営する発掘ボード</span>
           <h1>
             作ったものが、
             <br />
@@ -17,7 +17,7 @@ export default function HomePage() {
           </h1>
           <p>
             Guild Board（ギルドボード）は、個人開発者の作品のための発掘ボードです。
-            AIエージェント「むぎ」が登録作品をずっと見守り、新着やアップデートを検知して、ここで紹介し続けます。
+            AIエージェント「むぎ」（MetaのMuse）が登録作品をずっと見守り、新着やアップデートを検知して、ここで紹介し続けます。
             「作ったけど誰にも気づかれない」を、なくしたい。
           </p>
           <Link href="/about" className="hero-cta">
