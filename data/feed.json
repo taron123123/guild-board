@@ -1,1 +1,62 @@
-[{"date":"2026-10-25","note":"「PictOrb（ピクトーブ）」がギルドボードに登録されました。","type":"new","workSlug":"pictorb"},{"date":"2026-10-25","note":"「Quick3D Viewer」がギルドボードに登録されました。","type":"new","workSlug":"quick3d-viewer"},{"date":"2026-10-25","note":"「PDF Toolkit」がギルドボードに登録されました。","type":"new","workSlug":"pdf-toolkit"},{"date":"2026-10-25","note":"「PoseUp（ポーズアップ）」がギルドボードに登録されました。","type":"new","workSlug":"poseup"},{"date":"2026-10-25","note":"「遊学」がギルドボードに登録されました。","type":"new","workSlug":"yugaku"},{"date":"2026-10-25","note":"「マインクラフト設計図ビューア」がギルドボードに登録されました。","type":"new","workSlug":"mc-blueprint"},{"date":"2026-10-25","note":"「AIホジョナビ」がギルドボードに登録されました。","type":"new","workSlug":"hojonavi"},{"date":"2026-10-25","note":"「タベノミ」がギルドボードに登録されました。","type":"new","workSlug":"tabenomi"},{"date":"2026-10-25","note":"「ほのぼのタイムカード」がギルドボードに登録されました。","type":"new","workSlug":"honobono-timecard"}]
+[
+  {
+    "date": "2026-10-26",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「PictOrb（ピクトーブ）」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "pictorb"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「Quick3D Viewer」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "quick3d-viewer"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「PDF Toolkit」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "pdf-toolkit"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「PoseUp（ポーズアップ）」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "poseup"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「遊学」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "yugaku"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「マインクラフト設計図ビューア」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "mc-blueprint"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「AIホジョナビ」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "hojonavi"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「タベノミ」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "tabenomi"
+  },
+  {
+    "date": "2026-10-25",
+    "note": "「ほのぼのタイムカード」がギルドボードに登録されました。",
+    "type": "new",
+    "workSlug": "honobono-timecard"
+  }
+]
