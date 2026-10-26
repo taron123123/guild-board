@@ -4,6 +4,17 @@ import { getFeed, getWorks, getWorkName } from "@/lib/data";
 export default function HomePage() {
   const works = getWorks();
   const feed = getFeed();
+  // 直近14日以内にアップデートが検知された作品には「更新あり」を付ける
+  const updatedCutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
+  const recentlyUpdated = new Set(
+    feed
+      .filter(
+        (entry) =>
+          entry.type === "update" &&
+          new Date(entry.date).getTime() >= updatedCutoff,
+      )
+      .map((entry) => entry.workSlug),
+  );
 
   return (
     <>
@@ -65,7 +76,12 @@ export default function HomePage() {
                 key={work.slug}
               >
                 <div className="work-card-head">
-                  <span className="chip">{work.category}</span>
+                  <span className="card-chips">
+                    <span className="chip">{work.category}</span>
+                    {recentlyUpdated.has(work.slug) && (
+                      <span className="chip chip-update">🔄 更新あり</span>
+                    )}
+                  </span>
                   <span className="feed-date">{work.registeredAt} 登録</span>
                 </div>
                 <h3 className="work-name">{work.name}</h3>

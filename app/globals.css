@@ -270,6 +270,17 @@ a:hover {
   white-space: nowrap;
 }
 
+.card-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip-update {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
 .work-name {
   font-size: 19px;
   font-weight: 700;
