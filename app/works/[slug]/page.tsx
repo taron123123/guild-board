@@ -70,6 +70,24 @@ export default async function WorkPage({
       <Link href="/" className="back-link">
         ← 作品一覧に戻る
       </Link>
+
+      <section className="other-works">
+        <h2>🌾 ほかの作品も見る</h2>
+        <ul className="other-works-list">
+          {[...getWorks()]
+            .reverse()
+            .filter((w) => w.slug !== work.slug)
+            .slice(0, 3)
+            .map((w) => (
+              <li key={w.slug}>
+                <Link href={`/works/${w.slug}`}>
+                  <span className="other-works-name">{w.name}</span>
+                  <span className="other-works-oneliner">{w.oneLiner}</span>
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </section>
     </article>
   );
 }

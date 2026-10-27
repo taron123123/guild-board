@@ -377,6 +377,51 @@ a:hover {
   font-size: 14px;
 }
 
+/* other works on detail page */
+.other-works {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.other-works h2 {
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+
+.other-works-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.other-works-list li a {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.other-works-list li a:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+}
+
+.other-works-name {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.other-works-oneliner {
+  display: block;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
 /* about */
 .about-body {
   max-width: 760px;
