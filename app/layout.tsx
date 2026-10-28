@@ -3,9 +3,34 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://board.solo-guild.xyz"),
   title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
   description:
     "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: "https://board.solo-guild.xyz",
+    siteName: "Guild Board（ギルドボード）",
+    title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
+    description:
+      "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Guild Board（ギルドボード）— 個人開発の発掘ボード",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
+    description:
+      "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({

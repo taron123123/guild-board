@@ -18,6 +18,25 @@ export async function generateMetadata({
   return {
     title: `${work.name} | Guild Board`,
     description: work.oneLiner,
+    openGraph: {
+      title: `${work.name} | Guild Board`,
+      description: work.oneLiner,
+      url: `/works/${slug}`,
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: "Guild Board（ギルドボード）— 個人開発の発掘ボード",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${work.name} | Guild Board`,
+      description: work.oneLiner,
+      images: ["/og.png"],
+    },
   };
 }
 
