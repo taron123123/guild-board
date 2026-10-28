@@ -3,48 +3,54 @@
     "status": 200,
     "hash": "51e335e230fa2888",
     "contentLength": 4875,
-    "checkedAt": "2026-10-27T00:39:11.769Z"
+    "checkedAt": "2026-10-28T00:39:13.268Z"
   },
   "tabenomi": {
     "status": 200,
     "hash": "9d1a62568f63007e",
     "contentLength": 1746,
-    "checkedAt": "2026-10-27T00:39:12.395Z"
+    "checkedAt": "2026-10-28T00:39:14.104Z"
   },
   "hojonavi": {
     "status": 200,
     "hash": "63a0a6c8e9497ccd",
     "contentLength": 5609,
-    "checkedAt": "2026-10-27T00:39:13.131Z"
+    "checkedAt": "2026-10-28T00:39:14.707Z"
   },
   "mc-blueprint": {
     "status": 200,
-    "hash": "8fbdbe74a2f5894a",
-    "contentLength": 6560,
-    "checkedAt": "2026-10-27T00:39:14.013Z"
+    "hash": "284ee64bd3645ffe",
+    "contentLength": 6590,
+    "checkedAt": "2026-10-28T00:39:15.434Z"
   },
   "poseup": {
     "status": 200,
-    "hash": "a6c938555ceada5c",
+    "hash": "17e05a307d3c28bb",
     "contentLength": 226786,
-    "checkedAt": "2026-10-27T00:39:20.914Z"
+    "checkedAt": "2026-10-28T00:39:21.267Z"
   },
   "pdf-toolkit": {
     "status": 200,
     "hash": "1ad4b51ebe26f09a",
     "contentLength": 12717,
-    "checkedAt": "2026-10-27T00:39:21.765Z"
+    "checkedAt": "2026-10-28T00:39:21.830Z"
   },
   "sauna-map": {
     "status": 200,
-    "hash": "39dbf18d2cafcb9e",
+    "hash": "ca164bbfd52f7a4c",
     "contentLength": 7781,
-    "checkedAt": "2026-10-27T00:39:22.497Z"
+    "checkedAt": "2026-10-28T00:39:22.404Z"
   },
   "minna-no-muse": {
     "status": 200,
     "hash": "5ae4e8889c86627c",
     "contentLength": 19312,
-    "checkedAt": "2026-10-27T00:39:23.241Z"
+    "checkedAt": "2026-10-28T00:39:22.926Z"
+  },
+  "otolog": {
+    "status": 200,
+    "hash": "ac88a9ce65c6e611",
+    "contentLength": 32251,
+    "checkedAt": "2026-10-28T00:39:23.976Z"
   }
 }
