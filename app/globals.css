@@ -281,6 +281,37 @@ a:hover {
   color: #2e7d32;
 }
 
+.category-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid var(--line, #e5ddd0);
+  border-radius: 999px;
+  padding: 6px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.filter-chip.active {
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  border-color: transparent;
+}
+
+.filter-result {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: -8px 0 20px;
+}
+
 .work-name {
   font-size: 19px;
   font-weight: 700;

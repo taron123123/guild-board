@@ -1,9 +1,21 @@
 import Link from "next/link";
 import { getFeed, getWorks, getWorkName } from "@/lib/data";
 
-export default function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ category?: string }>;
+}) {
   const works = getWorks();
   const feed = getFeed();
+  const categories = Array.from(new Set(works.map((w) => w.category)));
+  const params = (await searchParams) ?? {};
+  const selectedCategory = categories.includes(params.category ?? "")
+    ? params.category
+    : undefined;
+  const visibleWorks = selectedCategory
+    ? works.filter((w) => w.category === selectedCategory)
+    : works;
   // 直近14日以内にアップデートが検知された作品には「更新あり」を付ける
   const updatedCutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
   const recentlyUpdated = new Set(
@@ -66,10 +78,32 @@ export default function HomePage() {
         <div className="container">
           <h2 className="section-title">🛠️ ギルドの作品一覧</h2>
           <p className="section-lead">
-            現在 {works.length} 作品が登録されています。気になる作品は、各ページから作者さんのサイトへどうぞ。
+            現在 {works.length} 作品が登録されています。気になるカテゴリを選ぶと、作品を絞り込めます。
           </p>
+          <nav className="category-filter" aria-label="カテゴリで絞り込む">
+            <Link
+              href="/"
+              className={`filter-chip${selectedCategory ? "" : " active"}`}
+            >
+              すべて（{works.length}）
+            </Link>
+            {categories.map((category) => (
+              <Link
+                key={category}
+                href={`/?category=${encodeURIComponent(category)}`}
+                className={`filter-chip${selectedCategory === category ? " active" : ""}`}
+              >
+                {category}（{works.filter((w) => w.category === category).length}）
+              </Link>
+            ))}
+          </nav>
+          {selectedCategory && (
+            <p className="filter-result">
+              「{selectedCategory}」の作品を {visibleWorks.length} 件表示しています。
+            </p>
+          )}
           <div className="works-grid">
-            {works.map((work) => (
+            {visibleWorks.map((work) => (
               <Link
                 href={`/works/${work.slug}`}
                 className="work-card"
