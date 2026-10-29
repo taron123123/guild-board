@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-10-29",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-10-29",
+    "workSlug": "mc-blueprint",
+    "type": "update",
+    "note": "「マインクラフト設計図ビューア」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-10-28",
     "workSlug": "sauna-map",
     "type": "update",
