@@ -90,6 +90,25 @@ export default async function WorkPage({
         ← 作品一覧に戻る
       </Link>
 
+      <section className="share-section">
+        <h2>📣 この作品を広める</h2>
+        <p>
+          気に入ったら、ぜひシェアして作者さんを応援してください。
+        </p>
+        <a
+          className="share-button"
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+            `${work.name} — ${work.oneLiner}`,
+          )}&url=${encodeURIComponent(
+            `https://board.solo-guild.xyz/works/${slug}`,
+          )}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          𝕏でシェアする
+        </a>
+      </section>
+
       <section className="other-works">
         <h2>🌾 ほかの作品も見る</h2>
         <ul className="other-works-list">

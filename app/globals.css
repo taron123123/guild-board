@@ -408,6 +408,40 @@ a:hover {
   font-size: 14px;
 }
 
+/* share section on detail page */
+.share-section {
+  margin-top: 48px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.share-section h2 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.share-section p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+.share-button {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 999px;
+}
+
+.share-button:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
 /* other works on detail page */
 .other-works {
   margin-top: 48px;
