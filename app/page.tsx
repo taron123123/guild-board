@@ -4,7 +4,7 @@ import { getFeed, getWorks, getWorkName } from "@/lib/data";
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams?: Promise<{ category?: string }>;
+  searchParams?: Promise<{ category?: string; sort?: string }>;
 }) {
   const works = getWorks();
   const feed = getFeed();
@@ -13,9 +13,23 @@ export default async function HomePage({
   const selectedCategory = categories.includes(params.category ?? "")
     ? params.category
     : undefined;
-  const visibleWorks = selectedCategory
-    ? works.filter((w) => w.category === selectedCategory)
+  const sortByUpdated = params.sort === "updated";
+  // 作品ごとの最新フィード日（登録日が基準。更新検知があればそちらを優先）
+  const latestActivity = new Map<string, string>();
+  for (const entry of feed) {
+    const prev = latestActivity.get(entry.workSlug);
+    if (!prev || entry.date > prev) latestActivity.set(entry.workSlug, entry.date);
+  }
+  const sortedWorks = sortByUpdated
+    ? [...works].sort((a, b) => {
+        const da = latestActivity.get(a.slug) ?? a.registeredAt;
+        const db = latestActivity.get(b.slug) ?? b.registeredAt;
+        return da < db ? 1 : da > db ? -1 : 0;
+      })
     : works;
+  const visibleWorks = selectedCategory
+    ? sortedWorks.filter((w) => w.category === selectedCategory)
+    : sortedWorks;
   // 直近14日以内にアップデートが検知された作品には「更新あり」を付ける
   const updatedCutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
   const recentlyUpdated = new Set(
@@ -97,9 +111,32 @@ export default async function HomePage({
               </Link>
             ))}
           </nav>
+          <nav className="category-filter" aria-label="並び順を変える">
+            <Link
+              href={selectedCategory ? `/?category=${encodeURIComponent(selectedCategory)}` : "/"}
+              className={`filter-chip${sortByUpdated ? "" : " active"}`}
+            >
+              登録順
+            </Link>
+            <Link
+              href={
+                selectedCategory
+                  ? `/?category=${encodeURIComponent(selectedCategory)}&sort=updated`
+                  : "/?sort=updated"
+              }
+              className={`filter-chip${sortByUpdated ? " active" : ""}`}
+            >
+              🔄 最近更新された順
+            </Link>
+          </nav>
           {selectedCategory && (
             <p className="filter-result">
               「{selectedCategory}」の作品を {visibleWorks.length} 件表示しています。
+            </p>
+          )}
+          {sortByUpdated && (
+            <p className="filter-result">
+              最近動きのあった作品から表示しています。
             </p>
           )}
           <div className="works-grid">
