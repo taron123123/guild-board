@@ -177,6 +177,26 @@ a:hover {
   font-size: 14px;
 }
 
+/* recruit banner */
+.recruit-banner {
+  background: #eef7fb;
+  border: 1px solid #c8e2ee;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.recruit-title {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.recruit-banner p {
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  font-size: 15px;
+}
+
 /* feed */
 .feed-list {
   list-style: none;

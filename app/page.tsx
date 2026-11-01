@@ -165,6 +165,21 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="recruit-banner">
+            <h2 className="recruit-title">🌾 あなたの作品も、埋もれさせない</h2>
+            <p>
+              個人開発の作品を募集中です。登録料はかかりません。
+              むぎがずっと見守り、更新を検知して紹介し続けます。
+            </p>
+            <Link href="/about" className="hero-cta">
+              登録方法を見る
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
