@@ -448,6 +448,12 @@ a:hover {
   margin: 0 0 16px;
 }
 
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .share-button {
   display: inline-block;
   background: #000;

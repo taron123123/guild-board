@@ -95,18 +95,30 @@ export default async function WorkPage({
         <p>
           気に入ったら、ぜひシェアして作者さんを応援してください。
         </p>
-        <a
-          className="share-button"
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-            `${work.name} — ${work.oneLiner}`,
-          )}&url=${encodeURIComponent(
-            `https://board.solo-guild.xyz/works/${slug}`,
-          )}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          𝕏でシェアする
-        </a>
+        <div className="share-buttons">
+          <a
+            className="share-button"
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+              `${work.name} — ${work.oneLiner}`,
+            )}&url=${encodeURIComponent(
+              `https://board.solo-guild.xyz/works/${slug}`,
+            )}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            𝕏でシェアする
+          </a>
+          <a
+            className="share-button"
+            href={`https://www.threads.net/intent/post?text=${encodeURIComponent(
+              `${work.name} — ${work.oneLiner} https://board.solo-guild.xyz/works/${slug}`,
+            )}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Threadsでシェアする
+          </a>
+        </div>
       </section>
 
       <section className="other-works">
