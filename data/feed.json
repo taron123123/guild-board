@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-11-03",
+    "workSlug": "otolog",
+    "type": "update",
+    "note": "「otolog（オトログ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-03",
+    "workSlug": "minna-no-muse",
+    "type": "update",
+    "note": "「みんなのMuse」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-03",
+    "workSlug": "sauna-map",
+    "type": "update",
+    "note": "「サウナ地図」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-03",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-03",
+    "workSlug": "honobono-timecard",
+    "type": "update",
+    "note": "「ほのぼのタイムカード」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-02",
     "workSlug": "otolog",
     "type": "update",
