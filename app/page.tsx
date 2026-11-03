@@ -67,10 +67,10 @@ export default async function HomePage({
         <div className="container">
           <h2 className="section-title">📣 新着・アップデート</h2>
           <p className="section-lead">
-            むぎが検知した、ギルドの動きをお届けします。
+            むぎが検知した、ギルドの動きをお届けします。最新の10件を表示しています。
           </p>
           <ul className="feed-list">
-            {feed.map((entry, i) => (
+            {feed.slice(0, 10).map((entry, i) => (
               <li className="feed-item" key={`${entry.workSlug}-${entry.date}-${i}`}>
                 <span className="feed-date">{entry.date}</span>
                 <span className={`feed-tag ${entry.type}`}>
