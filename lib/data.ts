@@ -20,6 +20,13 @@ export type FeedEntry = {
   note: string;
 };
 
+export type Thumb = {
+  src: string;
+  fit: "cover" | "contain";
+  w: number;
+  h: number;
+};
+
 function readJson<T>(filename: string): T {
   const file = path.join(process.cwd(), "data", filename);
   return JSON.parse(fs.readFileSync(file, "utf-8")) as T;
@@ -41,4 +48,36 @@ export function getFeed(): FeedEntry[] {
 
 export function getWorkName(slug: string): string {
   return getWork(slug)?.name ?? slug;
+}
+
+export function getThumbs(): Record<string, Thumb> {
+  try {
+    return readJson<Record<string, Thumb>>("thumbs.json");
+  } catch {
+    return {};
+  }
+}
+
+export function getThumb(slug: string): Thumb | undefined {
+  return getThumbs()[slug];
+}
+
+// サムネイルが無い作品のタイポグラフィカード用グラデーション（slug から決定的に選ぶ）
+const FALLBACK_GRADIENTS: Array<[string, string]> = [
+  ["#12293f", "#2f7ea3"],
+  ["#1d3a56", "#c9a24b"],
+  ["#0e2a38", "#3d8fa8"],
+  ["#2b2350", "#7a6fd0"],
+  ["#402b12", "#c98f2b"],
+  ["#123332", "#3d9e8f"],
+  ["#3d1f35", "#a85d8f"],
+  ["#26343d", "#7d99a6"],
+];
+
+export function fallbackGradient(slug: string): [string, string] {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+  }
+  return FALLBACK_GRADIENTS[hash % FALLBACK_GRADIENTS.length];
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getWork, getWorks } from "@/lib/data";
+import { getThumb, getWork, getWorks } from "@/lib/data";
 
 export function generateStaticParams() {
   return getWorks().map((w) => ({ slug: w.slug }));
@@ -16,10 +16,10 @@ export async function generateMetadata({
   const work = getWork(slug);
   if (!work) return {};
   return {
-    title: `${work.name} | Guild Board`,
+    title: `${work.name} | 個人開発ギルド`,
     description: work.oneLiner,
     openGraph: {
-      title: `${work.name} | Guild Board`,
+      title: `${work.name} | 個人開発ギルド`,
       description: work.oneLiner,
       url: `/works/${slug}`,
       images: [
@@ -27,13 +27,13 @@ export async function generateMetadata({
           url: "/og.png",
           width: 1200,
           height: 630,
-          alt: "Guild Board（ギルドボード）— 個人開発の発掘ボード",
+          alt: "個人開発ギルド — 個人開発の発掘ボード",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${work.name} | Guild Board`,
+      title: `${work.name} | 個人開発ギルド`,
       description: work.oneLiner,
       images: ["/og.png"],
     },
@@ -48,9 +48,18 @@ export default async function WorkPage({
   const { slug } = await params;
   const work = getWork(slug);
   if (!work) notFound();
+  const thumb = getThumb(slug);
 
   return (
     <article className="work-detail">
+      {thumb && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={thumb.src}
+          alt={`${work.name} の公式ビジュアル`}
+          className="work-hero-img"
+        />
+      )}
       <span className="chip">{work.category}</span>
       <h1>{work.name}</h1>
       <p className="work-meta">
@@ -91,7 +100,7 @@ export default async function WorkPage({
       </Link>
 
       <section className="share-section">
-        <h2>📣 この作品を広める</h2>
+        <h2>この作品を広める</h2>
         <p>
           気に入ったら、ぜひシェアして作者さんを応援してください。
         </p>
@@ -122,7 +131,7 @@ export default async function WorkPage({
       </section>
 
       <section className="other-works">
-        <h2>🌾 ほかの作品も見る</h2>
+        <h2>ほかの作品も見る</h2>
         <ul className="other-works-list">
           {[...getWorks()]
             .reverse()

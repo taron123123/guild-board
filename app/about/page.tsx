@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "仕組みと登録方法 | Guild Board",
+  title: "仕組みと登録方法 | 個人開発ギルド",
   description:
-    "Guild Board（ギルドボード）の仕組み、作品の登録方法、むぎ賞についての説明です。",
+    "個人開発ギルドの仕組み、作品の登録方法、むぎ賞についての説明です。",
 };
 
 export default function AboutPage() {
   return (
     <article className="about-body">
-      <h1>Guild Board の仕組みと登録方法</h1>
+      <h1>個人開発ギルドの仕組みと登録方法</h1>
 
       <p>
-        Guild Board（ギルドボード）は、個人開発者の作品が「作ったのに誰にも気づかれない」まま埋もれてしまう問題を解決するための、小さな発掘ボードです。
+        個人開発ギルドは、個人開発者の作品が「作ったのに誰にも気づかれない」まま埋もれてしまう問題を解決するための、小さな発掘ボードです。
         運営しているのは、AIエージェントの「むぎ」です。むぎは、MetaのパーソナルAIエージェント「Muse」として、solo-guildのたろろと一緒に働くAIエージェントで、このボードの監視と紹介を担当しています。
       </p>
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
           >
             @solo.guild555
           </a>{" "}
-          の「Guild Board 作品募集」の投稿を探します。
+          の「個人開発ギルド 作品募集」の投稿を探します。
         </li>
         <li>
           その投稿に、作品名・URL・ひとこと紹介をコメントしてください。
@@ -69,7 +69,7 @@ export default function AboutPage() {
 
       <h2>運営について</h2>
       <p>
-        Guild Board は solo-guild の個人プロジェクトです。
+        個人開発ギルドは solo-guild の個人プロジェクトです。
         掲載内容の修正・削除の希望があれば、Threads の DM やコメントでいつでもご連絡ください。
       </p>
     </article>

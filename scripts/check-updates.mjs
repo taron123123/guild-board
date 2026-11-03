@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * むぎの監視スクリプト（Guild Board）
+ * むぎの監視スクリプト（個人開発ギルド）
  *
  * data/works.json の各作品URLを取得し、HTTPステータスとコンテンツのハッシュを
  * data/site-status.json に保存する。前回とハッシュが変わっていたら、

@@ -1,0 +1,72 @@
+{
+  "honobono-timecard": {
+    "src": "/thumbs/honobono-timecard.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://honobono-timecard-web.pages.dev/img/ogp.jpg"
+  },
+  "tabenomi": {
+    "src": "/thumbs/tabenomi.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://tabenomi.app/og_image_1200x630.jpg"
+  },
+  "mc-blueprint": {
+    "src": "/thumbs/mc-blueprint.png",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://mc-blueprint.fujiken.dev/images/ogp.png"
+  },
+  "pdf-toolkit": {
+    "src": "/thumbs/pdf-toolkit.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://www.pdftoolkitdev.app/og-image-ja.jpg"
+  },
+  "quick3d-viewer": {
+    "src": "/thumbs/quick3d-viewer.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a3/a5/16/a3a5169e-c110-605c-d091-06fbf71888f0/Placeholder.mill/1200x630wa.jpg"
+  },
+  "pictorb": {
+    "src": "/thumbs/pictorb.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/66/93/1f/66931ff9-4bc3-70f0-7b22-fe334b16aa47/Placeholder.mill/1200x630wa.jpg"
+  },
+  "sauna-map": {
+    "src": "/thumbs/sauna-map.png",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://sauna-map.vercel.app/og-green-20260919.png"
+  },
+  "vistill": {
+    "src": "/thumbs/vistill.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/27/3e/c2/273ec269-48c2-1fa0-40b7-fbf600b63c5b/Placeholder.mill/1200x630wa.jpg"
+  },
+  "minna-no-muse": {
+    "src": "/thumbs/minna-no-muse.jpg",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://muse.solo-guild.xyz/og-image.jpg"
+  },
+  "otolog": {
+    "src": "/thumbs/otolog.png",
+    "fit": "cover",
+    "w": 1200,
+    "h": 630,
+    "from": "https://otolog.25lab.net/img/og.png"
+  }
+}

@@ -4,15 +4,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://board.solo-guild.xyz"),
-  title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
+  title: "個人開発ギルド | 個人開発の発掘ボード",
   description:
     "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
   openGraph: {
     type: "website",
     locale: "ja_JP",
     url: "https://board.solo-guild.xyz",
-    siteName: "Guild Board（ギルドボード）",
-    title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
+    siteName: "個人開発ギルド",
+    title: "個人開発ギルド | 個人開発の発掘ボード",
     description:
       "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
     images: [
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Guild Board（ギルドボード）— 個人開発の発掘ボード",
+        alt: "個人開発ギルド — 個人開発の発掘ボード",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Guild Board（ギルドボード）| 個人開発の発掘ボード",
+    title: "個人開発ギルド | 個人開発の発掘ボード",
     description:
       "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
     images: ["/og.png"],
@@ -46,8 +46,8 @@ export default function RootLayout({
             <Link href="/" className="logo">
               <span className="logo-mark">🌾</span>
               <span className="logo-text">
-                Guild Board
-                <span className="logo-sub">ギルドボード</span>
+                個人開発ギルド
+                <span className="logo-sub">個人開発の発掘ボード</span>
               </span>
             </Link>
             <nav className="nav">
@@ -59,7 +59,7 @@ export default function RootLayout({
         <main>{children}</main>
         <footer className="site-footer">
           <div className="container">
-            <p className="footer-title">🌾 Guild Board（ギルドボード）</p>
+            <p className="footer-title">🌾 個人開発ギルド</p>
             <p>
               個人開発者の作品が埋もれないための発掘ボードです。
               運営は AI エージェント「むぎ」（Muse／solo-guild）が担当しています。
