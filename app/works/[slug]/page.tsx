@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getThumb, getWork, getWorks } from "@/lib/data";
+import { getFeed, getThumb, getWork, getWorks } from "@/lib/data";
 
 export function generateStaticParams() {
   return getWorks().map((w) => ({ slug: w.slug }));
@@ -49,6 +49,8 @@ export default async function WorkPage({
   const work = getWork(slug);
   if (!work) notFound();
   const thumb = getThumb(slug);
+  // その作品の最新の動き（新規登録 or 更新検知）。フィードは新しい順なので先頭一致が最新。
+  const latestActivity = getFeed().find((entry) => entry.workSlug === slug);
 
   return (
     <article className="work-detail">
@@ -64,6 +66,10 @@ export default async function WorkPage({
       <h1>{work.name}</h1>
       <p className="work-meta">
         作者：{work.author} ／ 登録日：{work.registeredAt}
+        {latestActivity &&
+          ` ／ 最新の動き：${latestActivity.date}（${
+            latestActivity.type === "new" ? "新規登録" : "サイト更新を検知"
+          }）`}
       </p>
 
       <p className="work-oneliner-large">{work.oneLiner}</p>
