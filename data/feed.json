@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-11-04",
+    "workSlug": "minna-no-muse",
+    "type": "update",
+    "note": "「みんなのMuse」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-04",
+    "workSlug": "sauna-map",
+    "type": "update",
+    "note": "「サウナ地図」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-04",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-03",
     "workSlug": "otolog",
     "type": "update",
