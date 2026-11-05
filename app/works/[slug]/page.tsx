@@ -50,7 +50,12 @@ export default async function WorkPage({
   if (!work) notFound();
   const thumb = getThumb(slug);
   // その作品の最新の動き（新規登録 or 更新検知）。フィードは新しい順なので先頭一致が最新。
-  const latestActivity = getFeed().find((entry) => entry.workSlug === slug);
+  const feed = getFeed();
+  const latestActivity = feed.find((entry) => entry.workSlug === slug);
+  // その作品の動きの履歴（直近5件まで）。
+  const activityHistory = feed
+    .filter((entry) => entry.workSlug === slug)
+    .slice(0, 5);
 
   return (
     <article className="work-detail">
@@ -135,6 +140,20 @@ export default async function WorkPage({
           </a>
         </div>
       </section>
+
+      {activityHistory.length > 0 && (
+        <section className="work-activity">
+          <h2>📣 この作品の動き</h2>
+          <ul className="work-activity-list">
+            {activityHistory.map((entry, i) => (
+              <li key={`${entry.date}-${i}`}>
+                {entry.date}（
+                {entry.type === "new" ? "新規登録" : "サイト更新を検知"}）
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="other-works">
         <h2>ほかの作品も見る</h2>
