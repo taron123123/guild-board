@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-11-06",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-05",
     "workSlug": "minna-no-muse",
     "type": "update",
