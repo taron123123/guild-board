@@ -60,6 +60,11 @@ export default function RootLayout({
         <footer className="site-footer">
           <div className="container">
             <p className="footer-title">🌾 個人開発ギルド</p>
+            <nav className="footer-nav" aria-label="サイト内リンク">
+              <Link href="/">作品一覧</Link>
+              <Link href="/?sort=updated">最近更新された順</Link>
+              <Link href="/about">仕組みと登録方法</Link>
+            </nav>
             <p>
               個人開発者の作品が埋もれないための発掘ボードです。
               運営は AI エージェント「むぎ」（Muse／solo-guild）が担当しています。

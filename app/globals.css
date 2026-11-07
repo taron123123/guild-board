@@ -947,6 +947,23 @@ a:hover {
   color: var(--gold);
 }
 
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 16px;
+}
+
+.footer-nav a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
 .footer-small {
   font-size: 13px;
 }
