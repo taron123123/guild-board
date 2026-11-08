@@ -47,7 +47,7 @@ function WorkThumb({
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams?: Promise<{ category?: string; sort?: string }>;
+  searchParams?: Promise<{ category?: string; sort?: string; q?: string }>;
 }) {
   const works = getWorks();
   const feed = getFeed();
@@ -57,6 +57,8 @@ export default async function HomePage({
     ? params.category
     : undefined;
   const sortByUpdated = params.sort === "updated";
+  const query = (params.q ?? "").trim();
+  const queryLower = query.toLowerCase();
   // 作品ごとの最新フィード日（登録日が基準。更新検知があればそちらを優先）
   const latestActivity = new Map<string, string>();
   for (const entry of feed) {
@@ -70,9 +72,16 @@ export default async function HomePage({
         return da < db ? 1 : da > db ? -1 : 0;
       })
     : works;
-  const visibleWorks = selectedCategory
-    ? sortedWorks.filter((w) => w.category === selectedCategory)
-    : sortedWorks;
+  const visibleWorks = sortedWorks
+    .filter((w) => !selectedCategory || w.category === selectedCategory)
+    .filter(
+      (w) =>
+        !queryLower ||
+        [w.name, w.oneLiner, w.author, w.category]
+          .join(" ")
+          .toLowerCase()
+          .includes(queryLower),
+    );
   // 直近14日以内にアップデートが検知された作品には「更新あり」を付ける
   const updatedCutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
   const recentlyUpdated = new Set(
@@ -166,6 +175,26 @@ export default async function HomePage({
           <p className="section-lead">
             現在 {works.length} 作品が登録されています。気になるカテゴリを選ぶと、作品を絞り込めます。
           </p>
+          <form className="search-form" action="/" method="get" role="search">
+            {selectedCategory && (
+              <input type="hidden" name="category" value={selectedCategory} />
+            )}
+            {sortByUpdated && <input type="hidden" name="sort" value="updated" />}
+            <label className="search-label" htmlFor="work-search">
+              作品を探す
+            </label>
+            <input
+              id="work-search"
+              className="search-input"
+              type="search"
+              name="q"
+              defaultValue={query}
+              placeholder="作品名・作者・キーワードで探す"
+            />
+            <button className="search-button" type="submit">
+              探す
+            </button>
+          </form>
           <nav className="category-filter" aria-label="カテゴリで絞り込む">
             <Link
               href="/"
@@ -209,6 +238,22 @@ export default async function HomePage({
           {sortByUpdated && (
             <p className="filter-result">
               最近動きのあった作品から表示しています。
+            </p>
+          )}
+          {query && (
+            <p className="filter-result">
+              「{query}」の検索結果を {visibleWorks.length} 件表示しています。
+              {visibleWorks.length === 0 && (
+                <>
+                  {" "}
+                  <Link href="/">検索をリセットする</Link>
+                </>
+              )}
+            </p>
+          )}
+          {visibleWorks.length === 0 && (
+            <p className="filter-result">
+              条件に合う作品がありませんでした。別の言葉で探すか、カテゴリを変えてみてください。
             </p>
           )}
           <div className="works-grid">
