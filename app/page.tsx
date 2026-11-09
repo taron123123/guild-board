@@ -65,6 +65,13 @@ export default async function HomePage({
     const prev = latestActivity.get(entry.workSlug);
     if (!prev || entry.date > prev) latestActivity.set(entry.workSlug, entry.date);
   }
+  // 作品ごとの最新の「更新」検知日（カードに表示する用。新規登録のみの作品は表示なし）
+  const latestUpdate = new Map<string, string>();
+  for (const entry of feed) {
+    if (entry.type !== "update") continue;
+    const prev = latestUpdate.get(entry.workSlug);
+    if (!prev || entry.date > prev) latestUpdate.set(entry.workSlug, entry.date);
+  }
   const sortedWorks = sortByUpdated
     ? [...works].sort((a, b) => {
         const da = latestActivity.get(a.slug) ?? a.registeredAt;
@@ -272,6 +279,12 @@ export default async function HomePage({
                 <div className="work-card-body">
                   <h3 className="work-name">{work.name}</h3>
                   <p className="work-oneliner">{work.oneLiner}</p>
+                  {latestUpdate.get(work.slug) && (
+                    <p className="work-activity">
+                      🔄 最新の更新{" "}
+                      {latestUpdate.get(work.slug)!.slice(5).replace("-", "/")}
+                    </p>
+                  )}
                   <span className="work-card-foot">
                     <span className="work-author">
                       作者：<strong>{work.author}</strong>

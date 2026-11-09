@@ -625,6 +625,12 @@ a:hover {
   flex: 1;
 }
 
+.work-activity {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
 .work-card-foot {
   display: flex;
   align-items: baseline;
