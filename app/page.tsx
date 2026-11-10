@@ -51,6 +51,14 @@ export default async function HomePage({
 }) {
   const works = getWorks();
   const feed = getFeed();
+  // 直近7日間（最新フィード日を含む7日分）の更新検知件数。ヒーローの実績表示用。
+  const latestFeedDate = feed.length > 0 ? feed[0].date : "";
+  const weekStart = new Date(latestFeedDate);
+  weekStart.setDate(weekStart.getDate() - 6);
+  const weekStartStr = weekStart.toISOString().slice(0, 10);
+  const recentUpdates = feed.filter(
+    (entry) => entry.type === "update" && entry.date >= weekStartStr,
+  ).length;
   const categories = Array.from(new Set(works.map((w) => w.category)));
   const params = (await searchParams) ?? {};
   const selectedCategory = categories.includes(params.category ?? "")
@@ -123,6 +131,9 @@ export default async function HomePage({
             </span>
             <span className="hero-stat">
               <strong>{feed.length}</strong> 件の新着・更新を配信
+            </span>
+            <span className="hero-stat">
+              <strong>{recentUpdates}</strong> 件の更新を直近7日間に検知
             </span>
           </div>
           <div className="hero-actions">
