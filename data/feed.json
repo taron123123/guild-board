@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-11-10",
+    "workSlug": "minna-no-muse",
+    "type": "update",
+    "note": "「みんなのMuse」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-10",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-10",
+    "workSlug": "mc-blueprint",
+    "type": "update",
+    "note": "「マインクラフト設計図ビューア」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-09",
     "workSlug": "otolog",
     "type": "update",
