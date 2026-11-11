@@ -598,6 +598,16 @@ a:hover {
   color: #237032;
 }
 
+.chip-new {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.work-thumb-chips .chip-new {
+  background: rgba(180, 83, 9, 0.92);
+  color: #fff;
+}
+
 .work-thumb-chips .chip-update {
   background: rgba(35, 112, 50, 0.9);
   color: #fff;

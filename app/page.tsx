@@ -5,11 +5,13 @@ function WorkThumb({
   slug,
   name,
   updated,
+  isNew,
   category,
 }: {
   slug: string;
   name: string;
   updated: boolean;
+  isNew: boolean;
   category: string;
 }) {
   const thumb = getThumb(slug);
@@ -38,6 +40,7 @@ function WorkThumb({
       )}
       <span className="work-thumb-chips">
         <span className="chip chip-on-thumb">{category}</span>
+        {isNew && <span className="chip chip-new">🆕 NEW</span>}
         {updated && <span className="chip chip-update">更新あり</span>}
       </span>
     </div>
@@ -99,6 +102,8 @@ export default async function HomePage({
     );
   // 直近14日以内にアップデートが検知された作品には「更新あり」を付ける
   const updatedCutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
+  // 登録から14日以内の作品には「NEW」を付ける（新着作品が目に入るように）
+  const newCutoff = updatedCutoff;
   const recentlyUpdated = new Set(
     feed
       .filter(
@@ -286,6 +291,7 @@ export default async function HomePage({
                   name={work.name}
                   category={work.category}
                   updated={recentlyUpdated.has(work.slug)}
+                  isNew={new Date(work.registeredAt).getTime() >= newCutoff}
                 />
                 <div className="work-card-body">
                   <h3 className="work-name">{work.name}</h3>
