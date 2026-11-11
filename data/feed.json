@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-11",
+    "workSlug": "minna-no-muse",
+    "type": "update",
+    "note": "「みんなのMuse」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-11",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-10",
     "workSlug": "minna-no-muse",
     "type": "update",
