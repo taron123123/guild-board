@@ -148,6 +148,9 @@ export default async function HomePage({
             <a href="#works" className="hero-cta ghost">
               作品一覧を見る
             </a>
+            <Link href="/random" className="hero-cta ghost">
+              🎲 ランダムで作品を見る
+            </Link>
           </div>
         </div>
       </section>
