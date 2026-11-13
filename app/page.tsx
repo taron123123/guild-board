@@ -90,6 +90,11 @@ export default async function HomePage({
         return da < db ? 1 : da > db ? -1 : 0;
       })
     : works;
+  // 直近の更新がいちばん新しい作品（スポットライト表示用）
+  const latestUpdateEntry = feed.find((entry) => entry.type === "update");
+  const spotlight = latestUpdateEntry
+    ? works.find((w) => w.slug === latestUpdateEntry.workSlug)
+    : undefined;
   const visibleWorks = sortedWorks
     .filter((w) => !selectedCategory || w.category === selectedCategory)
     .filter(
@@ -154,6 +159,27 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      {spotlight && latestUpdateEntry && (
+        <section className="section spotlight-section">
+          <div className="container">
+            <div className="spotlight">
+              <p className="spotlight-kicker">🔥 今日いちばん動いている作品</p>
+              <h2 className="spotlight-name">
+                <Link href={`/works/${spotlight.slug}`}>{spotlight.name}</Link>
+              </h2>
+              <p className="spotlight-oneliner">{spotlight.oneLiner}</p>
+              <p className="spotlight-meta">
+                {latestUpdateEntry.date.slice(5).replace("-", "/")} に更新を検知
+                ・ 作者：{spotlight.author}
+              </p>
+              <Link href={`/works/${spotlight.slug}`} className="hero-cta">
+                作品ページを見る
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">
