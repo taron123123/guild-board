@@ -63,6 +63,7 @@ export default function RootLayout({
             <nav className="footer-nav" aria-label="サイト内リンク">
               <Link href="/">作品一覧</Link>
               <Link href="/?sort=updated">最近更新された順</Link>
+              <Link href="/feed">新着・アップデート一覧</Link>
               <Link href="/about">仕組みと登録方法</Link>
             </nav>
             <p>

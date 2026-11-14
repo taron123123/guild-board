@@ -217,6 +217,9 @@ export default async function HomePage({
               );
             })}
           </ul>
+          <p className="feed-archive-link">
+            <Link href="/feed">過去の新着・アップデートをすべて見る →</Link>
+          </p>
         </div>
       </section>
 
