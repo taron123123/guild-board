@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-11-15",
+    "workSlug": "sauna-map",
+    "type": "update",
+    "note": "「サウナ地図」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-15",
+    "workSlug": "pdf-toolkit",
+    "type": "update",
+    "note": "「PDF Toolkit」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-15",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-14",
     "workSlug": "poseup",
     "type": "update",
