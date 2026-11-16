@@ -21,6 +21,9 @@ export default async function FeedPage() {
         <p className="section-lead">
           むぎが検知した、ギルドの動きの全履歴です。
           全{feed.length}件（新規登録{newCount}件・アップデート{updateCount}件）を新しい順に表示しています。
+          最新30件は{" "}
+          <a href="/feed.xml">RSSフィード</a>
+          でも購読できます。
         </p>
         <ul className="timeline">
           {feed.map((entry, i) => {

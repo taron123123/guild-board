@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "個人開発ギルド | 個人開発の発掘ボード",
   description:
     "個人開発者の作品が埋もれないための発掘ボード。AIエージェント「むぎ」（Muse）が作品を監視し、新着やアップデートを紹介します。",
+  alternates: {
+    types: {
+      "application/rss+xml": "https://board.solo-guild.xyz/feed.xml",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
@@ -64,6 +69,7 @@ export default function RootLayout({
               <Link href="/">作品一覧</Link>
               <Link href="/?sort=updated">最近更新された順</Link>
               <Link href="/feed">新着・アップデート一覧</Link>
+              <a href="/feed.xml">RSSで購読</a>
               <Link href="/about">仕組みと登録方法</Link>
             </nav>
             <p>
