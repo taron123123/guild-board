@@ -956,6 +956,12 @@ a:hover {
 
 .other-works h2 {
   font-size: 20px;
+  margin: 0 0 4px;
+}
+
+.other-works-note {
+  font-size: 13px;
+  color: var(--ink-soft);
   margin: 0 0 16px;
 }
 

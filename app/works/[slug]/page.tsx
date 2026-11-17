@@ -57,6 +57,20 @@ export default async function WorkPage({
     .filter((entry) => entry.workSlug === slug)
     .slice(0, 5);
 
+  // ほかの作品は「最近動きのあった順」に並べる（登録順だと新着の1作ばかりが先頭に来るため）。
+  // 動きがなければ登録日を基準にする。
+  const otherWorks = [...getWorks()]
+    .filter((w) => w.slug !== work.slug)
+    .map((w) => {
+      const latest = feed.find((entry) => entry.workSlug === w.slug);
+      return { work: w, activity: latest?.date ?? w.registeredAt };
+    })
+    .sort((a, b) =>
+      a.activity < b.activity ? 1 : a.activity > b.activity ? -1 : 0,
+    )
+    .slice(0, 3)
+    .map(({ work: w }) => w);
+
   return (
     <article className="work-detail">
       {thumb && (
@@ -157,12 +171,9 @@ export default async function WorkPage({
 
       <section className="other-works">
         <h2>ほかの作品も見る</h2>
+        <p className="other-works-note">最近動きのあった作品から表示しています。</p>
         <ul className="other-works-list">
-          {[...getWorks()]
-            .reverse()
-            .filter((w) => w.slug !== work.slug)
-            .slice(0, 3)
-            .map((w) => (
+          {otherWorks.map((w) => (
               <li key={w.slug}>
                 <Link href={`/works/${w.slug}`}>
                   <span className="other-works-name">{w.name}</span>
