@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-11-17",
+    "workSlug": "minna-no-muse",
+    "type": "update",
+    "note": "「みんなのMuse」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-17",
+    "workSlug": "pdf-toolkit",
+    "type": "update",
+    "note": "「PDF Toolkit」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-17",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-16",
     "workSlug": "otolog",
     "type": "update",
