@@ -11,17 +11,29 @@ export const metadata: Metadata = {
 export default async function FeedPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ work?: string }>;
+  searchParams?: Promise<{ work?: string; type?: string }>;
 }) {
   const feed = getFeed();
   const works = getWorks();
   const params = (await searchParams) ?? {};
   const selectedWork = works.find((w) => w.slug === params.work);
-  const visibleFeed = selectedWork
-    ? feed.filter((entry) => entry.workSlug === selectedWork.slug)
-    : feed;
+  const selectedType =
+    params.type === "new" || params.type === "update"
+      ? params.type
+      : undefined;
+  const visibleFeed = feed
+    .filter((entry) => !selectedWork || entry.workSlug === selectedWork.slug)
+    .filter((entry) => !selectedType || entry.type === selectedType);
   const newCount = feed.filter((entry) => entry.type === "new").length;
   const updateCount = feed.filter((entry) => entry.type === "update").length;
+  // 絞り込みリンクは作品・種類のもう一方の指定を維持する
+  const feedHref = (work?: string, type?: string) => {
+    const q = new URLSearchParams();
+    if (work) q.set("work", work);
+    if (type) q.set("type", type);
+    const s = q.toString();
+    return s ? `/feed?${s}` : "/feed";
+  };
   // 履歴が1件以上ある作品だけを絞り込みチップに並べる
   const worksWithFeed = works.filter((w) =>
     feed.some((entry) => entry.workSlug === w.slug),
@@ -41,7 +53,7 @@ export default async function FeedPage({
         </p>
         <nav className="category-filter" aria-label="作品で絞り込む">
           <Link
-            href="/feed"
+            href={feedHref(undefined, selectedType)}
             className={`filter-chip${selectedWork ? "" : " active"}`}
           >
             すべて（{feed.length}）
@@ -53,7 +65,7 @@ export default async function FeedPage({
             return (
               <Link
                 key={work.slug}
-                href={`/feed?work=${encodeURIComponent(work.slug)}`}
+                href={feedHref(work.slug, selectedType)}
                 className={`filter-chip${
                   selectedWork?.slug === work.slug ? " active" : ""
                 }`}
@@ -63,9 +75,37 @@ export default async function FeedPage({
             );
           })}
         </nav>
-        {selectedWork && (
+        <nav className="category-filter" aria-label="種類で絞り込む">
+          <Link
+            href={feedHref(selectedWork?.slug, undefined)}
+            className={`filter-chip${selectedType ? "" : " active"}`}
+          >
+            すべて（{feed.length}）
+          </Link>
+          <Link
+            href={feedHref(selectedWork?.slug, "new")}
+            className={`filter-chip${selectedType === "new" ? " active" : ""}`}
+          >
+            新規登録のみ（{newCount}）
+          </Link>
+          <Link
+            href={feedHref(selectedWork?.slug, "update")}
+            className={`filter-chip${
+              selectedType === "update" ? " active" : ""
+            }`}
+          >
+            アップデートのみ（{updateCount}）
+          </Link>
+        </nav>
+        {(selectedWork || selectedType) && (
           <p className="filter-result">
-            「{selectedWork.name}」の動きを {visibleFeed.length} 件表示しています。
+            {selectedWork ? `「${selectedWork.name}」の` : ""}
+            {selectedType === "new"
+              ? "新規登録"
+              : selectedType === "update"
+                ? "アップデート"
+                : "動き"}
+            を {visibleFeed.length} 件表示しています。
             <Link href="/feed"> 絞り込みをリセットする</Link>
           </p>
         )}
