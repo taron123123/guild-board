@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-11-19",
+    "workSlug": "otolog",
+    "type": "update",
+    "note": "「otolog（オトログ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-19",
+    "workSlug": "minna-no-muse",
+    "type": "update",
+    "note": "「みんなのMuse」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-19",
+    "workSlug": "sauna-map",
+    "type": "update",
+    "note": "「サウナ地図」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-19",
+    "workSlug": "poseup",
+    "type": "update",
+    "note": "「PoseUp（ポーズアップ）」のサイト更新を検知しました。"
+  },
+  {
+    "date": "2026-11-19",
+    "workSlug": "mc-blueprint",
+    "type": "update",
+    "note": "「マインクラフト設計図ビューア」のサイト更新を検知しました。"
+  },
+  {
     "date": "2026-11-18",
     "workSlug": "minna-no-muse",
     "type": "update",
