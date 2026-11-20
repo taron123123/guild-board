@@ -46,7 +46,7 @@ export default async function FeedPage({
         <h1 className="section-title">新着・アップデート一覧</h1>
         <p className="section-lead">
           むぎが検知した、ギルドの動きの全履歴です。
-          全{feed.length}件（新規登録{newCount}件・アップデート{updateCount}件）を新しい順に表示しています。
+          全{feed.length}件（新規登録{newCount}件・アップデート{updateCount}件）を新しい順に、日付ごとに区切って表示しています。
           最新30件は{" "}
           <a href="/feed.xml">RSSフィード</a>
           でも購読できます。
@@ -109,35 +109,65 @@ export default async function FeedPage({
             <Link href="/feed"> 絞り込みをリセットする</Link>
           </p>
         )}
-        <ul className="timeline">
-          {visibleFeed.map((entry, i) => {
-            const [year, month, day] = entry.date.split("-");
+        {/* 日付ごとに区切って表示する（75件の履歴を眺めやすくするため） */}
+        {(() => {
+          const groups: { date: string; entries: typeof visibleFeed }[] = [];
+          for (const entry of visibleFeed) {
+            const last = groups[groups.length - 1];
+            if (last && last.date === entry.date) {
+              last.entries.push(entry);
+            } else {
+              groups.push({ date: entry.date, entries: [entry] });
+            }
+          }
+          const weekday = ["日", "月", "火", "水", "木", "金", "土"];
+          return groups.map((group) => {
+            const [year, month, day] = group.date.split("-");
+            const dow =
+              weekday[
+                new Date(`${group.date}T00:00:00+09:00`).getDay()
+              ];
             return (
-              <li className="tl-item" key={`${entry.workSlug}-${entry.date}-${i}`}>
-                <div className="tl-date">
-                  <span className="tl-md">
-                    {month}/{day}
+              <div key={group.date}>
+                <h2 className="feed-date-heading">
+                  {year}年{Number(month)}月{Number(day)}日（{dow}）
+                  <span className="feed-date-count">
+                    {group.entries.length}件
                   </span>
-                  <span className="tl-year">{year}</span>
-                </div>
-                <div className="tl-rail" aria-hidden="true">
-                  <span className={`tl-dot ${entry.type}`} />
-                </div>
-                <div className="tl-body">
-                  <span className={`feed-tag ${entry.type}`}>
-                    {entry.type === "new" ? "新規登録" : "アップデート"}
-                  </span>
-                  <span className="feed-note">
-                    <Link href={`/works/${entry.workSlug}`}>
-                      {getWorkName(entry.workSlug)}
-                    </Link>
-                    ：{entry.note}
-                  </span>
-                </div>
-              </li>
+                </h2>
+                <ul className="timeline">
+                  {group.entries.map((entry, i) => (
+                    <li
+                      className="tl-item"
+                      key={`${entry.workSlug}-${entry.date}-${i}`}
+                    >
+                      <div className="tl-date">
+                        <span className="tl-md">
+                          {month}/{day}
+                        </span>
+                        <span className="tl-year">{year}</span>
+                      </div>
+                      <div className="tl-rail" aria-hidden="true">
+                        <span className={`tl-dot ${entry.type}`} />
+                      </div>
+                      <div className="tl-body">
+                        <span className={`feed-tag ${entry.type}`}>
+                          {entry.type === "new" ? "新規登録" : "アップデート"}
+                        </span>
+                        <span className="feed-note">
+                          <Link href={`/works/${entry.workSlug}`}>
+                            {getWorkName(entry.workSlug)}
+                          </Link>
+                          ：{entry.note}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             );
-          })}
-        </ul>
+          });
+        })()}
         <p className="feed-archive-link">
           <Link href="/">← 作品一覧に戻る</Link>
         </p>
