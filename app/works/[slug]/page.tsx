@@ -56,6 +56,10 @@ export default async function WorkPage({
   const activityHistory = feed
     .filter((entry) => entry.workSlug === slug)
     .slice(0, 5);
+  // 全履歴が5件を超える場合だけ、作品別絞り込みの /feed への導線を出す。
+  const activityTotal = feed.filter(
+    (entry) => entry.workSlug === slug,
+  ).length;
 
   // ほかの作品は「最近動きのあった順」に並べる（登録順だと新着の1作ばかりが先頭に来るため）。
   // 動きがなければ登録日を基準にする。
@@ -166,6 +170,13 @@ export default async function WorkPage({
               </li>
             ))}
           </ul>
+          {activityTotal > 5 && (
+            <p className="feed-archive-link">
+              <Link href={`/feed?work=${slug}`}>
+                「{work.name}」のすべての動きを見る →
+              </Link>
+            </p>
+          )}
         </section>
       )}
 
